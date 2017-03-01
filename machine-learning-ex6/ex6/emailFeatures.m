@@ -48,7 +48,11 @@ x = zeros(n, 1);
 %
 %
 
-
+count = size(word_indices,1);
+for i=1:count
+    id = word_indices(i);
+    x(id) = 1;
+end
 
 
 

@@ -22,12 +22,27 @@ sigma = 0.3;
 %  Note: You can compute the prediction error using 
 %        mean(double(predictions ~= yval))
 %
+available_List = [0.01,0.03,0.1,0.3,1,3,10,30];
+try_times = size(available_List,2);
+error_M = ones(try_times);
 
+for i=1:try_times
+    for j=1:try_times
+        C = available_List(i);
+        sigma = available_List(j);
+        model = svmTrain(X, y, C, @(x1, x2) gaussianKernel(x1, x2, sigma)); 
+        prediction = svmPredict(model, Xval);
+        
+        error_M(i,j) = sum((prediction - yval).^2);
+    end
+end
 
+[min_col, min_j] = min(error_M);
 
+[min_val, min_i] = min(min_col);
 
-
-
+sigma = available_List(min_i);
+C = available_List(min_j(min_i));
 
 % =========================================================================
 
