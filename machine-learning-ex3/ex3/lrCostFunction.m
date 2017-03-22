@@ -37,6 +37,7 @@ grad = zeros(size(theta));
 %
 
 z = X * theta;
+e = exp(1);
 h_theta = 1 ./ (1 + e.^(-z));
 
 theta_t = theta;

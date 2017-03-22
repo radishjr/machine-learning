@@ -11,11 +11,12 @@ g = zeros(size(z));
 
 [col, row] = size(z);
 
+e = exp(1);
 for i = 1:col
   for j = 1:row
     g(i, j) = 1/(1 + e^(-z(i,j)));
-  endfor
-endfor
+  end
+end
 
 % =============================================================
 

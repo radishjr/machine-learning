@@ -24,7 +24,7 @@ h_theta = sigmoid(z);
 
 
 theta_reg = theta;
-theta_reg(1,:)*=0;
+theta_reg(1,:) = 0;
 
 J = ((-y)' * log(h_theta) - (1 - y)'* log( 1 - h_theta)) / m + lambda * sum(theta_reg.*theta_reg) / (2 * m);
 

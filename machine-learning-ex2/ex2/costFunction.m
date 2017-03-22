@@ -21,7 +21,6 @@ grad = zeros(size(theta));
 %
 
 
-[colX, rowX] = size(X);
 z = X*theta;
 h_theta = sigmoid(z);
 J = ((-y)' * log(h_theta) - (1 - y)'* log( 1 - h_theta)) / m;

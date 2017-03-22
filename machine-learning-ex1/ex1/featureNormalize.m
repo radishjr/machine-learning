@@ -29,8 +29,8 @@ sigma = zeros(1, size(X, 2));
 mu = mean(X);
 sigma = std(X);%max(X) - min(X) ;
 
-for i=1:size(X)(2)
-  i;
+[colSize, rowSize] = size(X)
+for i=1:rowSize
   X_norm(:,i) = (X(:,i) - mu(i))/sigma(i);
 end
 
