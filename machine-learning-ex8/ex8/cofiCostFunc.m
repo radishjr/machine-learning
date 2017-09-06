@@ -46,25 +46,24 @@ Theta_grad = zeros(size(Theta));
 #R = R(1:num_movies, 1:num_users);
 
 %Silly way to get the job done
-for j = 1:num_users
-  for i = 1:num_movies
-    if R(i, j) == 1
-      grad = (X(i, :) * Theta(j, :)' - Y(i,j));
-      for k = 1:num_features
-        X_grad(i, k) += grad * Theta(j,k);
-      end
-      J += grad^2/2;
-    end
-    if j == 1
-      Theta_lambda = lambda * (sum(Theta(i) ^ 2)) / 2;
-      J += Theta_lambda;
-     end
-  end
-  X_lambda = lambda * (sum(X_grad(j) ^ 2)) / 2;
-  J += X_lambda;
-end
-
-
+%for j = 1:num_users
+%  for i = 1:num_movies
+%    if R(i, j) == 1
+%      grad = (X(i, :) * Theta(j, :)' - Y(i,j));
+%      for k = 1:num_features
+%        X_grad(i, k) += grad * Theta(j,k);
+%      end
+%      J += grad^2/2;
+%    end
+%    if j == 1
+%      Theta_lambda = lambda * (sum(Theta(i) ^ 2)) / 2;
+%      J += Theta_lambda;
+%     end
+%  end
+%  X_lambda = lambda * (sum(X_grad(j) ^ 2)) / 2;
+%  J += X_lambda;
+%end
+%
 %Theta_grad = zeros(size(Theta));
 %for j = 1:num_users
 %  for i = 1:num_movies
